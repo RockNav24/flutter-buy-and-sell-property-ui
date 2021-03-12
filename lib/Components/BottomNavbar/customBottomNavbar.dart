@@ -13,6 +13,7 @@ class _CustomBottomNavbarState extends State<CustomBottomNavbar> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.transparent,
       height: MediaQuery.of(context).size.height * c_bottomNavbarHeight,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
