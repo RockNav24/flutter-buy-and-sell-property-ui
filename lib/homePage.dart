@@ -21,77 +21,90 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: SafeArea(
-        child: Align(
-          alignment: AlignmentDirectional(1, 1),
-          child: Column(
-            children: [
-              Expanded(
-                flex: 2,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Find Your",
-                      style: TextStyle(
-                          fontSize:
-                              MediaQuery.of(context).size.width * c_logoSize,
-                          fontWeight: c_logoWeight,
-                          letterSpacing: c_logoLetterSpacing),
-                    ),
-                    Text(
-                      "Sweet Home",
-                      style: TextStyle(
-                          fontSize:
-                              MediaQuery.of(context).size.width * c_logoSize,
-                          fontWeight: c_logoWeight,
-                          letterSpacing: c_logoLetterSpacing),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Container(
-                  child: FloatingSearchAppBar(
-                    elevation: 1,
-                    leadingActions: [
-                      Icon(Icons.settings_input_composite_rounded)
-                    ],
-                    title: const Text('Search home...'),
-                    transitionDuration: const Duration(milliseconds: 800),
-                    body: ListView.separated(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      itemCount: 100,
-                      separatorBuilder: (context, index) => const Divider(),
-                      itemBuilder: (context, index) {
-                        return null;
-                      },
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                flex: 8,
-                child: Container(
-                  child: ListView.separated(
-                    padding: const EdgeInsets.all(8),
-                    itemCount: entries.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return CustomCard();
-                    },
-                    separatorBuilder: (BuildContext context, int index) =>
-                        const SizedBox(
-                      height: 10,
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: CustomBottomNavbar(),
-              ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              const Color(0xffffffff),
+              const Color(0xfff5f5f5),
             ],
+          ),
+        ),
+        child: SafeArea(
+          child: Align(
+            alignment: AlignmentDirectional(1, 1),
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Find Your",
+                        style: TextStyle(
+                            fontSize:
+                                MediaQuery.of(context).size.width * c_logoSize,
+                            fontWeight: c_logoWeight,
+                            letterSpacing: c_logoLetterSpacing),
+                      ),
+                      Text(
+                        "Sweet Home",
+                        style: TextStyle(
+                            fontSize:
+                                MediaQuery.of(context).size.width * c_logoSize,
+                            fontWeight: c_logoWeight,
+                            letterSpacing: c_logoLetterSpacing),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    child: FloatingSearchAppBar(
+                      elevation: 1,
+                      leadingActions: [
+                        Icon(Icons.settings_input_composite_rounded)
+                      ],
+                      title: const Text('Search home...'),
+                      transitionDuration: const Duration(milliseconds: 800),
+                      body: ListView.separated(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        itemCount: 100,
+                        separatorBuilder: (context, index) => const Divider(),
+                        itemBuilder: (context, index) {
+                          return null;
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 8,
+                  child: Container(
+                    color: Colors.transparent,
+                    child: ListView.separated(
+                      padding: const EdgeInsets.all(8),
+                      itemCount: entries.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return CustomCard();
+                      },
+                      separatorBuilder: (BuildContext context, int index) =>
+                          const SizedBox(
+                        height: 10,
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: CustomBottomNavbar(),
+                ),
+              ],
+            ),
           ),
         ),
       ),
